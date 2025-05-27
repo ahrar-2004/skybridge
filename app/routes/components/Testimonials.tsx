@@ -26,38 +26,45 @@ export default function Testimonials() {
   ];
 
   return (
-    <section className="bg-white py-20 px-6" id="testimonials" aria-label="Customer Testimonials">
+    <section
+      className="bg-gradient-to-br from-white via-[#f0f9ff] to-[#e0f7fa] py-20 px-6"
+      id="testimonials"
+      aria-label="Customer Testimonials"
+    >
       <div className="max-w-7xl mx-auto text-center">
         <h2 className="text-4xl md:text-5xl font-extrabold text-[#0077b6] mb-8 animate-fadeInUp">
           What Our Clients Say
         </h2>
         <p className="text-gray-700 mb-16 max-w-3xl mx-auto text-lg leading-relaxed animate-fadeInUp animation-delay-200">
-          Discover why so many clients trust Sky Bridge Real Estate for buying, selling, and investing in properties. Our commitment to transparency, professionalism, and client satisfaction is reflected in their stories.
+          Discover why so many clients trust Sky Bridge Real Estate for buying,
+          selling, and investing in properties. Our commitment to transparency,
+          professionalism, and client satisfaction is reflected in their stories.
         </p>
 
         <div className="grid md:grid-cols-3 gap-10">
           {testimonials.map((testimonial, index) => (
-            <div
+            <article
               key={index}
-              className="bg-gray-100 rounded-3xl shadow-lg p-8 text-left hover:shadow-2xl transition-transform transform hover:scale-[1.03] cursor-default animate-fadeInUp"
+              className="bg-white rounded-3xl shadow-lg p-8 text-left hover:shadow-2xl transition-transform transform hover:scale-105 cursor-default animate-fadeInUp"
               style={{ animationDelay: `${index * 150}ms` }}
-              role="article"
               aria-labelledby={`testimonial-name-${index}`}
             >
               <Quote className="text-[#b8860b] w-10 h-10 mb-4" />
-              <p className="text-gray-800 mb-6 italic leading-relaxed">&ldquo;{testimonial.text}&rdquo;</p>
+              <blockquote className="text-gray-800 mb-6 italic leading-relaxed">
+                &ldquo;{testimonial.text}&rdquo;
+              </blockquote>
               <h4
                 id={`testimonial-name-${index}`}
                 className="text-[#0077b6] font-semibold text-xl"
               >
                 {testimonial.name}
               </h4>
-            </div>
+            </article>
           ))}
         </div>
       </div>
 
-      <style >{`
+      <style>{`
         @keyframes fadeInUp {
           0% {
             opacity: 0;

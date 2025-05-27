@@ -15,52 +15,63 @@ export default function Services() {
       title: "Property Buying",
       description:
         "We help you find and purchase the best property to fit your needs and budget.",
-      icon: <Building2 className="w-10 h-10 text-[#0077b6]" />,
+      icon: <Building2 className="w-7 h-7 text-white" />,
+      color: "bg-[#0077b6]",
     },
     {
       title: "Property Selling",
       description:
         "Sell your property faster with expert marketing and a wide buyer network.",
-      icon: <Handshake className="w-10 h-10 text-[#0077b6]" />,
+      icon: <Handshake className="w-7 h-7 text-white" />,
+      color: "bg-[#b8860b]",
     },
     {
       title: "Property Consultancy",
       description:
         "Get expert advice on property trends, market value, and investment options.",
-      icon: <Search className="w-10 h-10 text-[#0077b6]" />,
+      icon: <Search className="w-7 h-7 text-white" />,
+      color: "bg-[#0077b6]",
     },
     {
       title: "Property Management",
       description:
         "Professional management services to maintain your property and maximize returns.",
-      icon: <Home className="w-10 h-10 text-[#0077b6]" />,
+      icon: <Home className="w-7 h-7 text-white" />,
+      color: "bg-[#b8860b]",
     },
     {
       title: "Home Loan Assistance",
       description:
         "Guidance and support through home financing options and loan applications.",
-      icon: <CreditCard className="w-10 h-10 text-[#0077b6]" />,
+      icon: <CreditCard className="w-7 h-7 text-white" />,
+      color: "bg-[#0077b6]",
     },
     {
       title: "Legal Documentation",
       description:
         "Expert handling of legal paperwork ensuring a smooth and secure transaction.",
-      icon: <FileText className="w-10 h-10 text-[#0077b6]" />,
+      icon: <FileText className="w-7 h-7 text-white" />,
+      color: "bg-[#b8860b]",
     },
     {
       title: "Virtual Tours",
       description:
         "Experience properties remotely with high-quality virtual tours and walkthroughs.",
-      icon: <Video className="w-10 h-10 text-[#0077b6]" />,
+      icon: <Video className="w-7 h-7 text-white" />,
+      color: "bg-[#0077b6]",
     },
   ];
 
   return (
     <section
-      className="py-20 bg-[#f0f9ff]"
+      className="relative py-20 bg-gradient-to-tr from-[#e0f7fa] via-[#f0f9ff] to-[#ffffff]"
       id="services"
       aria-label="Our Services"
     >
+      {/* Decorative blobs */}
+      <div className="absolute top-10 left-8 w-32 h-32 bg-[#0077b6] opacity-10 rounded-full blur-3xl -z-10"></div>
+      <div className="absolute bottom-10 right-10 w-48 h-48 bg-[#b8860b] opacity-10 rounded-full blur-3xl -z-10"></div>
+
       <div className="max-w-6xl mx-auto px-6 text-center">
         <h2 className="text-4xl md:text-5xl font-extrabold text-[#0077b6] mb-6">
           Our Services
@@ -78,33 +89,37 @@ export default function Services() {
           {services.map((service, index) => (
             <div
               key={index}
-              className="bg-white p-6 rounded-2xl shadow-md
-                transform transition duration-500
-                hover:scale-105 hover:shadow-xl
-                hover:bg-[#ff6b6b20]
+              className="relative bg-white p-8 rounded-3xl shadow-lg
                 cursor-pointer
-                opacity-0 animate-fadeIn
-                animation-delay-[calc(100ms*var(--i))]"
+                transform transition duration-400
+                hover:scale-105 hover:shadow-2xl
+                opacity-0 animate-fadeIn animation-delay-[calc(120ms*var(--i))]"
               style={{ "--i": index } as React.CSSProperties}
               aria-label={service.title}
               role="article"
             >
-              {service.icon}
-              <h3 className="text-xl font-semibold text-[#b8860b] mt-4 mb-3">
+              <div
+                className={`inline-flex items-center justify-center rounded-full w-14 h-14 mb-5 ${service.color} shadow-md`}
+              >
+                {service.icon}
+              </div>
+              <h3 className="text-xl font-semibold text-[#b8860b] mb-3">
                 {service.title}
               </h3>
               <p className="text-gray-600 leading-relaxed">{service.description}</p>
+              {/* Hover overlay */}
+              <div className="absolute inset-0 rounded-3xl bg-gradient-to-tr from-[#0077b620] to-[#b8860b20] opacity-0 hover:opacity-100 transition-opacity pointer-events-none"></div>
             </div>
           ))}
         </div>
       </div>
 
-      {/* Tailwind custom animation */}
+      {/* Tailwind CSS animations */}
       <style>{`
         @keyframes fadeIn {
           0% {
             opacity: 0;
-            transform: translateY(10px);
+            transform: translateY(12px);
           }
           100% {
             opacity: 1;
@@ -112,10 +127,10 @@ export default function Services() {
           }
         }
         .animate-fadeIn {
-          animation: fadeIn 0.6s ease forwards;
+          animation: fadeIn 0.5s ease forwards;
         }
-        .animation-delay-[calc(100ms*var(--i))] {
-          animation-delay: calc(100ms * var(--i));
+        .animation-delay-[calc(120ms*var(--i))] {
+          animation-delay: calc(120ms * var(--i));
         }
       `}</style>
     </section>
