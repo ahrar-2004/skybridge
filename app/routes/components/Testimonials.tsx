@@ -27,15 +27,20 @@ export default function Testimonials() {
 
   return (
     <section
-      className="bg-gradient-to-br from-white via-[#f0f9ff] to-[#e0f7fa] py-20 px-6"
       id="testimonials"
       aria-label="Customer Testimonials"
+      className="relative py-20 px-6 overflow-hidden bg-gradient-to-br from-[#e6f0fa] to-[#d9e8f9]"
     >
-      <div className="max-w-7xl mx-auto text-center">
-        <h2 className="text-4xl md:text-5xl font-extrabold text-[#0077b6] mb-8 animate-fadeInUp">
+      {/* Floating shapes */}
+      <div className="absolute top-10 left-8 w-20 h-20 rounded-full bg-[#0077b6] opacity-15 filter blur-3xl animate-floatSlow mix-blend-screen"></div>
+      <div className="absolute bottom-24 right-10 w-28 h-28 rounded-full bg-[#b8860b] opacity-10 filter blur-3xl animate-floatSlow animation-delay-1000 mix-blend-screen"></div>
+      <div className="absolute top-1/2 right-1/3 w-36 h-36 rounded-full bg-[#0077b6] opacity-12 filter blur-2xl animate-floatSlow animation-delay-1500 mix-blend-screen"></div>
+
+      <div className="relative max-w-7xl mx-auto text-center">
+        <h2 className="text-4xl md:text-5xl font-extrabold text-[#0077b6] mb-10 animate-fadeInUp">
           What Our Clients Say
         </h2>
-        <p className="text-gray-700 mb-16 max-w-3xl mx-auto text-lg leading-relaxed animate-fadeInUp animation-delay-200">
+        <p className="text-[#0f172a] mb-20 max-w-3xl mx-auto text-lg leading-relaxed animate-fadeInUp animation-delay-200 font-light tracking-wide">
           Discover why so many clients trust Sky Bridge Real Estate for buying,
           selling, and investing in properties. Our commitment to transparency,
           professionalism, and client satisfaction is reflected in their stories.
@@ -45,17 +50,20 @@ export default function Testimonials() {
           {testimonials.map((testimonial, index) => (
             <article
               key={index}
-              className="bg-white rounded-3xl shadow-lg p-8 text-left hover:shadow-2xl transition-transform transform hover:scale-105 cursor-default animate-fadeInUp"
+              className="relative bg-white rounded-3xl shadow-md p-8 text-left cursor-default
+              hover:shadow-[0_0_15px_rgba(184,134,11,0.4)]
+              transition-transform transform hover:scale-[1.04]
+              animate-fadeInUp"
               style={{ animationDelay: `${index * 150}ms` }}
               aria-labelledby={`testimonial-name-${index}`}
             >
-              <Quote className="text-[#b8860b] w-10 h-10 mb-4" />
-              <blockquote className="text-gray-800 mb-6 italic leading-relaxed">
+              <Quote className="text-[#0077b6] w-10 h-10 mb-4" />
+              <blockquote className="text-gray-900 mb-6 italic leading-relaxed">
                 &ldquo;{testimonial.text}&rdquo;
               </blockquote>
               <h4
                 id={`testimonial-name-${index}`}
-                className="text-[#0077b6] font-semibold text-xl"
+                className="text-[#b8860b] font-semibold text-xl tracking-wide"
               >
                 {testimonial.name}
               </h4>
@@ -68,11 +76,19 @@ export default function Testimonials() {
         @keyframes fadeInUp {
           0% {
             opacity: 0;
-            transform: translateY(30px);
+            transform: translateY(20px);
           }
           100% {
             opacity: 1;
             transform: translateY(0);
+          }
+        }
+        @keyframes floatSlow {
+          0%, 100% {
+            transform: translateY(0);
+          }
+          50% {
+            transform: translateY(-12px);
           }
         }
         .animate-fadeInUp {
@@ -80,6 +96,15 @@ export default function Testimonials() {
         }
         .animation-delay-200 {
           animation-delay: 0.2s;
+        }
+        .animate-floatSlow {
+          animation: floatSlow 7s ease-in-out infinite;
+        }
+        .animation-delay-1000 {
+          animation-delay: 1s;
+        }
+        .animation-delay-1500 {
+          animation-delay: 1.5s;
         }
       `}</style>
     </section>
