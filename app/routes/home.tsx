@@ -6,13 +6,13 @@ import Team from "./components/Team";
 import Testimonials from "./components/Testimonials";
 import Contact from "./components/Contact";
 import Navbar from "./components/Navbar";
-import Header from "./components/Header";
+// import Header from "./components/Header";
 import Footer from "./components/Footer";
 
 const Home: React.FC = () => {
   return (
     <>
-      <Header />
+      {/* <Header /> */}
       <Navbar />
       <Hero />
       <About />

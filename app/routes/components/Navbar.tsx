@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-scroll";
 import { Menu, X } from "lucide-react";
+import logo from "./logo.jpg";
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -15,12 +16,20 @@ const Navbar: React.FC = () => {
   ];
 
   return (
-    <nav className="bg-white shadow-md py-4 px-6 w-full z-40 relative">
-      <div className="max-w-7xl mx-auto flex justify-between items-center">
-        <h1 className="text-[#0074B7] font-bold text-xl">Sky Bridge</h1>
+    <nav className="fixed top-0 left-0 w-full z-50 backdrop-blur-md bg-white/90 shadow-md">
+      <div className="max-w-7xl mx-auto flex justify-between items-center px-6 py-4">
+        {/* Logo and Brand */}
+        <div className="flex items-center space-x-3">
+          <img
+            src={logo}
+            alt="Sky Bridge Logo"
+            className="w-10 h-10 rounded-full object-cover shadow"
+          />
+          <span className="text-2xl font-bold text-[#0074B7]">Sky Bridge</span>
+        </div>
 
-        {/* Desktop Nav */}
-        <ul className="hidden md:flex space-x-8 text-[#B8860B] font-semibold">
+        {/* Desktop Menu */}
+        <ul className="hidden md:flex space-x-6 lg:space-x-10 font-semibold text-[#B8860B]">
           {navItems.map((item) => (
             <li key={item.to} className="relative group">
               <Link
@@ -28,10 +37,10 @@ const Navbar: React.FC = () => {
                 smooth={true}
                 duration={500}
                 offset={-80}
-                className="cursor-pointer transition-colors duration-300 hover:text-[#0074B7]"
+                className="cursor-pointer hover:text-[#0074B7] transition-colors"
               >
                 {item.name}
-                <span className="absolute left-1/2 bottom-[-6px] w-0 h-0.5 bg-[#0074B7] group-hover:w-full transition-all duration-300 origin-center transform -translate-x-1/2"></span>
+                <span className="block h-0.5 w-0 bg-[#0074B7] group-hover:w-full transition-all duration-300 mt-1"></span>
               </Link>
             </li>
           ))}
@@ -39,27 +48,35 @@ const Navbar: React.FC = () => {
 
         {/* Mobile Menu Icon */}
         <button
-          className="md:hidden text-[#0074B7]"
           onClick={() => setIsOpen(!isOpen)}
+          className="md:hidden text-[#0074B7]"
           aria-label={isOpen ? "Close menu" : "Open menu"}
         >
           {isOpen ? <X size={28} /> : <Menu size={28} />}
         </button>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Mobile Slide Menu */}
       <div
-        className={`md:hidden fixed top-0 left-0 w-2/3 h-full bg-white shadow-xl z-50 transform transition-transform duration-300 ease-in-out ${
+        className={`fixed top-0 left-0 h-full w-2/3 sm:w-1/2 bg-white z-50 shadow-lg transform transition-transform duration-300 ease-in-out ${
           isOpen ? "translate-x-0" : "-translate-x-full"
         }`}
       >
         <div className="flex justify-between items-center p-5 border-b">
-          <h1 className="text-[#0074B7] font-bold text-xl">Sky Bridge</h1>
+          <div className="flex items-center space-x-2">
+            <img
+              src={logo}
+              alt="Sky Bridge Logo"
+              className="w-8 h-8 rounded-full object-cover"
+            />
+            <span className="text-xl font-bold text-[#0074B7]">Sky Bridge</span>
+          </div>
           <button onClick={() => setIsOpen(false)} aria-label="Close menu">
-            <X size={28} className="text-[#0074B7]" />
+            <X size={26} className="text-[#0074B7]" />
           </button>
         </div>
-        <ul className="flex flex-col p-6 space-y-6 text-[#B8860B] font-medium">
+
+        <ul className="flex flex-col p-6 space-y-5 font-medium text-[#B8860B]">
           {navItems.map((item) => (
             <li key={item.to}>
               <Link
@@ -68,7 +85,7 @@ const Navbar: React.FC = () => {
                 duration={500}
                 offset={-80}
                 onClick={() => setIsOpen(false)}
-                className="cursor-pointer hover:text-[#0074B7]"
+                className="cursor-pointer hover:text-[#0074B7] transition-colors"
               >
                 {item.name}
               </Link>
