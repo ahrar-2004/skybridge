@@ -1,11 +1,22 @@
-import React from "react";
+import React, { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
+
 import bd1 from "./bd1.jpg";
 import bd2 from "./bd2.webp";
+import logo from "./logo.jpg";
 
 export default function Hero() {
+  useEffect(() => {
+    AOS.init({ duration: 1000, once: true });
+  }, []);
+
   return (
-    <section className="relative bg-white overflow-x-hidden overflow-y-hidden" id="hero">
-      {/* Subtle background pattern */}
+    <section
+      className="relative bg-white overflow-x-hidden overflow-y-hidden"
+      id="hero"
+    >
+      {/* Background pattern */}
       <div
         className="absolute inset-0 bg-cover bg-center opacity-10 pointer-events-none"
         style={{
@@ -14,10 +25,22 @@ export default function Hero() {
         }}
       />
 
-      {/* Content Container */}
+      {/* Logo */}
+      <div className="absolute top-24 left-6 z-30 bg-white/80 backdrop-blur-sm p-2 rounded-full shadow-lg">
+        <img
+          src={logo}
+          alt="Sky Bridge Logo"
+          className="w-12 h-12 rounded-full object-cover"
+        />
+      </div>
+
+      {/* Content */}
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
         {/* Text Content */}
-        <div className="space-y-8 text-center md:text-left">
+        <div
+          className="space-y-8 text-center md:text-left"
+          data-aos="fade-up"
+        >
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-[#1F2937] leading-tight">
             Elevate Your Life with{" "}
             <span className="text-[#0074B7]">Sky Bridge</span>{" "}
@@ -43,8 +66,11 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* Image Section */}
-        <div className="relative w-full max-w-full flex justify-center md:justify-end">
+        {/* Image Content */}
+        <div
+          className="relative w-full max-w-full flex justify-center md:justify-end"
+          data-aos="zoom-in"
+        >
           <div className="w-full max-w-md rounded-3xl overflow-hidden shadow-xl transform hover:scale-[1.02] transition duration-300">
             <img
               src={bd1}
@@ -52,7 +78,11 @@ export default function Hero() {
               className="w-full h-auto object-cover"
             />
           </div>
-          <div className="absolute -bottom-10 right-1/2 translate-x-1/2 sm:right-0 sm:translate-x-0 w-32 sm:w-44 rounded-xl overflow-hidden border-4 border-white shadow-2xl">
+          <div
+            className="absolute -bottom-10 right-1/2 translate-x-1/2 sm:right-0 sm:translate-x-0 w-32 sm:w-44 rounded-xl overflow-hidden border-4 border-white shadow-2xl"
+            data-aos="fade-up"
+            data-aos-delay="300"
+          >
             <img src={bd2} alt="Luxury Home" className="w-full h-auto object-cover" />
           </div>
         </div>

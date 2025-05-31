@@ -6,10 +6,14 @@ import {
   Scripts,
   ScrollRestoration,
 } from "react-router";
+import React, { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css"; // AOS styles
 
 import type { Route } from "./+types/root";
 import "./app.css";
 
+// External fonts
 export const links: Route.LinksFunction = () => [
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
   {
@@ -42,6 +46,14 @@ export function Layout({ children }: { children: React.ReactNode }) {
 }
 
 export default function App() {
+  // Initialize AOS
+  useEffect(() => {
+    AOS.init({
+      duration: 1000, // animation duration
+      once: true,     // animate only once
+    });
+  }, []);
+
   return <Outlet />;
 }
 

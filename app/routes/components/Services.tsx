@@ -71,48 +71,59 @@ const services = [
 export default function Services() {
   return (
     <section
-  id="services"
-  aria-label="Our Services"
-  className="relative py-20 bg-[#f9fafb] overflow-hidden"
->
-  {/* Decorative elements */}
-  <div className="absolute top-10 left-10 w-32 h-32 bg-[#0077b6] rounded-full blur-3xl opacity-10 -z-10"></div>
-  <div className="absolute bottom-10 right-10 w-48 h-48 bg-[#0077b6] rounded-full blur-3xl opacity-10 -z-10"></div>
+      id="services"
+      aria-label="Our Services"
+      className="relative py-20 bg-[#f9fafb] overflow-hidden"
+    >
+      {/* Decorative elements */}
+      <div className="absolute top-10 left-10 w-32 h-32 bg-[#0077b6] rounded-full blur-3xl opacity-10 -z-10"></div>
+      <div className="absolute bottom-10 right-10 w-48 h-48 bg-[#0077b6] rounded-full blur-3xl opacity-10 -z-10"></div>
 
-  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-    <h2 className="text-4xl sm:text-5xl font-extrabold text-[#0077b6] mb-4">
-      Our Services
-    </h2>
-    <p className="text-gray-700 text-lg max-w-2xl mx-auto mb-12">
-      At <span className="text-[#b8860b] font-semibold">Sky Bridge Real Estate</span>, we provide comprehensive solutions for all your property needs — from buying and selling to legal guidance and virtual tours.
-    </p>
-
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-      {services.map((service, index) => (
-        <article
-          key={index}
-          className="relative rounded-3xl shadow-lg overflow-hidden group transition-transform duration-500 hover:scale-105"
-          aria-label={service.title}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2
+          className="text-4xl sm:text-5xl font-extrabold text-[#0077b6] mb-4"
+          data-aos="fade-down"
         >
-          {/* Background image */}
-          <div
-            className="absolute inset-0 bg-cover bg-center"
-            style={{ backgroundImage: `url(${service.bgImage})` }}
-          />
-          {/* Overlay */}
-          <div className="absolute inset-0 bg-black/50 group-hover:bg-black/60 transition duration-300" />
+          Our Services
+        </h2>
+        <p
+          className="text-gray-700 text-lg max-w-2xl mx-auto mb-12"
+          data-aos="fade-up"
+          data-aos-delay="100"
+        >
+          At{" "}
+          <span className="text-[#b8860b] font-semibold">Sky Bridge Real Estate</span>, we provide comprehensive solutions for all your property needs — from buying and selling to legal guidance and virtual tours.
+        </p>
 
-          {/* Content */}
-          <div className="relative p-8 text-left text-white flex flex-col justify-end h-full z-10">
-            {service.icon}
-            <h3 className="mt-4 text-xl font-semibold">{service.title}</h3>
-            <p className="mt-2 text-sm leading-relaxed">{service.description}</p>
-          </div>
-        </article>
-      ))}
-    </div>
-  </div>
-</section>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          {services.map((service, index) => (
+            <article
+              key={index}
+              className="relative rounded-3xl shadow-lg overflow-hidden group transition-transform duration-500 hover:scale-105"
+              aria-label={service.title}
+              data-aos="zoom-in-up"
+              data-aos-delay={index * 100}
+            >
+              {/* Background image */}
+              <div
+                className="absolute inset-0 bg-cover bg-center"
+                style={{ backgroundImage: `url(${service.bgImage})` }}
+              />
+              {/* Overlay */}
+              <div className="absolute inset-0 bg-black/50 group-hover:bg-black/60 transition duration-300" />
 
+              {/* Content */}
+              <div className="relative p-8 text-left text-white flex flex-col justify-end h-full z-10">
+                {service.icon}
+                <h3 className="mt-4 text-xl font-semibold">{service.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed">
+                  {service.description}
+                </p>
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
   );
 }

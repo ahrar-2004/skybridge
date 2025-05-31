@@ -2,6 +2,7 @@ import React from "react";
 import re1 from "./re1.jpg"; // High-res modern apartment
 import re2 from "./re2.jpg"; // Luxury interior
 import re3 from "./re3.jpeg"; // Architectural real estate
+
 export default function About() {
   return (
     <section
@@ -16,7 +17,7 @@ export default function About() {
       {/* Content */}
       <div className="relative z-10 max-w-7xl mx-auto px-6 grid md:grid-cols-2 items-center gap-16">
         {/* Text Section */}
-        <div className="space-y-6">
+        <div className="space-y-6" data-aos="fade-right">
           <h2 className="text-4xl md:text-5xl font-extrabold text-[#1f2937] leading-tight">
             Who We Are
           </h2>
@@ -33,21 +34,21 @@ export default function About() {
 
         {/* Image Grid */}
         <div className="grid grid-cols-2 gap-4">
-          <div className="col-span-1">
+          <div className="col-span-1" data-aos="zoom-in-up" data-aos-delay="100">
             <img
               src={re1}
               alt="Modern Apartment"
               className="rounded-3xl shadow-xl object-cover h-56 w-full hover:scale-105 transition"
             />
           </div>
-          <div className="col-span-1">
+          <div className="col-span-1" data-aos="zoom-in-up" data-aos-delay="200">
             <img
               src={re2}
               alt="Luxury Interior"
               className="rounded-3xl shadow-xl object-cover h-56 w-full hover:scale-105 transition"
             />
           </div>
-          <div className="col-span-2">
+          <div className="col-span-2" data-aos="zoom-in-up" data-aos-delay="300">
             <img
               src={re3}
               alt="Architectural Real Estate"

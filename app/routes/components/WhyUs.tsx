@@ -8,31 +8,34 @@ export default function WhyUs() {
       title: "Trusted & Verified Listings",
       description:
         "Thoroughly verified property listings with full transparency to ensure safe, secure, and reliable transactions.",
-      image: "https://images.pexels.com/photos/8293776/pexels-photo-8293776.jpeg?auto=compress&cs=tinysrgb&w=800",
+      image:
+        "https://images.pexels.com/photos/8293776/pexels-photo-8293776.jpeg?auto=compress&cs=tinysrgb&w=800",
     },
     {
       icon: <Home className="text-white w-8 h-8" />,
       title: "Extensive Property Options",
       description:
         "From budget apartments to luxury estates and commercial spaces, we cater to every need and budget.",
-      image: "https://images.pexels.com/photos/439391/pexels-photo-439391.jpeg?auto=compress&cs=tinysrgb&w=800",
+      image:
+        "https://images.pexels.com/photos/439391/pexels-photo-439391.jpeg?auto=compress&cs=tinysrgb&w=800",
     },
     {
       icon: <Users className="text-white w-8 h-8" />,
       title: "Experienced & Dedicated Team",
       description:
         "Our expert agents provide personalized support and guidance for buying, selling, or investing.",
-      image: "https://images.pexels.com/photos/3183197/pexels-photo-3183197.jpeg?auto=compress&cs=tinysrgb&w=800",
+      image:
+        "https://images.pexels.com/photos/3183197/pexels-photo-3183197.jpeg?auto=compress&cs=tinysrgb&w=800",
     },
   ];
 
   return (
     <section
-      className="relative bg-[#f0f9ff] py-24 px-6 overflow-hidden"
       id="why"
       aria-label="Why Choose Sky Bridge Real Estate"
+      className="relative bg-[#f0f9ff] py-24 px-6 overflow-hidden"
     >
-      {/* Decorative background overlays */}
+      {/* Decorative Background */}
       <img
         src="https://www.transparenttextures.com/patterns/diagmonds-light.png"
         className="absolute inset-0 w-full h-full object-cover opacity-10 -z-10"
@@ -54,30 +57,51 @@ export default function WhyUs() {
           Why Choose Us
         </h2>
         <p className="text-gray-700 mb-16 max-w-3xl mx-auto text-lg leading-relaxed">
-          At <span className="font-semibold text-[#b8860b]">Sky Bridge Real Estate</span>,
-          we’re dedicated to helping you make informed real estate decisions with ease, clarity, and confidence.
+          At{" "}
+          <span className="font-semibold text-[#b8860b]">
+            Sky Bridge Real Estate
+          </span>
+          , we’re dedicated to helping you make informed real estate decisions
+          with ease, clarity, and confidence.
         </p>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10">
           {reasons.map((reason, index) => (
             <div
               key={index}
-              className="relative bg-white rounded-3xl shadow-xl overflow-hidden transform transition duration-500 hover:scale-105"
-              role="article"
+              role="region"
+              aria-labelledby={`reason-title-${index}`}
+              aria-describedby={`reason-desc-${index}`}
+              className="group relative bg-white rounded-3xl shadow-xl overflow-hidden transform transition duration-500 hover:scale-105 hover:shadow-2xl hover:-translate-y-1"
             >
               <img
                 src={reason.image}
                 alt={reason.title}
                 className="w-full h-40 object-cover"
               />
-              <div className="absolute top-3 left-3 bg-[#0077b6] p-3 rounded-full shadow-lg">
+              {/* Icon */}
+              <div className="absolute top-3 left-3 bg-[#0077b6] p-3 rounded-full shadow-lg group-hover:animate-bounce transition duration-300">
                 {reason.icon}
               </div>
-              <div className="p-6 text-left">
-                <h3 className="text-xl font-semibold text-[#b8860b] mb-2">
+
+              {/* Optional Badge (e.g., Popular) */}
+              {index === 0 && (
+                <span className="absolute top-3 right-3 bg-[#b8860b] text-white text-xs px-2 py-1 rounded-full shadow">
+                  Popular
+                </span>
+              )}
+
+              <div className="p-4 sm:p-6 text-left">
+                <h3
+                  id={`reason-title-${index}`}
+                  className="text-xl font-semibold text-[#b8860b] mb-2"
+                >
                   {reason.title}
                 </h3>
-                <p className="text-gray-600 text-base leading-relaxed">
+                <p
+                  id={`reason-desc-${index}`}
+                  className="text-gray-600 text-base leading-relaxed"
+                >
                   {reason.description}
                 </p>
               </div>
