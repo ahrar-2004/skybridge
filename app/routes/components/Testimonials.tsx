@@ -31,7 +31,7 @@ export default function Testimonials() {
       aria-label="Customer Testimonials"
       className="relative py-20 px-6 overflow-hidden bg-gradient-to-br from-[#e6f0fa] to-[#d9e8f9]"
     >
-      {/* Floating shapes */}
+      {/* Floating background shapes */}
       <div className="absolute top-10 left-8 w-20 h-20 rounded-full bg-[#0077b6] opacity-15 filter blur-3xl animate-floatSlow mix-blend-screen"></div>
       <div className="absolute bottom-24 right-10 w-28 h-28 rounded-full bg-[#b8860b] opacity-10 filter blur-3xl animate-floatSlow animation-delay-1000 mix-blend-screen"></div>
       <div className="absolute top-1/2 right-1/3 w-36 h-36 rounded-full bg-[#0077b6] opacity-12 filter blur-2xl animate-floatSlow animation-delay-1500 mix-blend-screen"></div>
@@ -51,10 +51,10 @@ export default function Testimonials() {
             <article
               key={index}
               className="relative bg-white rounded-3xl shadow-md p-8 text-left cursor-default
-              hover:shadow-[0_0_15px_rgba(184,134,11,0.4)]
-              transition-transform transform hover:scale-[1.04]
-              animate-fadeInUp"
-              style={{ animationDelay: `${index * 150}ms` }}
+                hover:shadow-[0_0_15px_rgba(184,134,11,0.4)]
+                transition-transform transform hover:scale-[1.04]
+                opacity-0 animate-fadeInUp"
+              style={{ animationDelay: `${index * 150}ms`, animationFillMode: "forwards" }}
               aria-labelledby={`testimonial-name-${index}`}
             >
               <Quote className="text-[#0077b6] w-10 h-10 mb-4" />

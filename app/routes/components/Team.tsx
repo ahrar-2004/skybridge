@@ -40,17 +40,20 @@ export default function Team() {
           Meet Our Expert Team
         </h2>
         <p className="text-gray-800 mb-20 max-w-3xl mx-auto text-xl leading-relaxed font-light tracking-wide">
-          Our experienced and dedicated real estate professionals are committed to helping you find your dream home, make smart investments, and navigate the property market with confidence.
+          Our experienced and dedicated real estate professionals are committed
+          to helping you find your dream home, make smart investments, and
+          navigate the property market with confidence.
         </p>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-12">
           {teamMembers.map((member, index) => (
-            <div
+            <article
               key={index}
-              className="relative bg-white p-8 rounded-3xl shadow-lg hover:shadow-2xl transition-transform transform hover:scale-105 cursor-pointer overflow-hidden"
-              style={{ animationDelay: `${index * 200}ms` }}
-              role="article"
+              role="region"
               aria-labelledby={`team-member-name-${index}`}
+              className="relative bg-white p-8 rounded-3xl shadow-lg hover:shadow-2xl transition-transform transform hover:scale-105 cursor-pointer overflow-hidden
+                opacity-0 animate-fadeInUp"
+              style={{ animationDelay: `${index * 200}ms`, animationFillMode: "forwards" }}
             >
               <div className="relative w-32 h-32 mx-auto mb-6 rounded-full overflow-hidden shadow-lg ring-4 ring-[#0077b6] transition-all duration-500 hover:ring-[#b8860b]">
                 <img
@@ -68,8 +71,10 @@ export default function Team() {
               >
                 {member.name}
               </h4>
-              <p className="text-[#b8860b] mt-2 text-lg font-medium tracking-wide">{member.role}</p>
-            </div>
+              <p className="text-[#b8860b] mt-2 text-lg font-medium tracking-wide">
+                {member.role}
+              </p>
+            </article>
           ))}
         </div>
       </div>
