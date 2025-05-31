@@ -25,14 +25,16 @@ export default function Hero() {
         }}
       />
 
-      {/* Logo */}
-      <div className="absolute top-24 left-6 z-30 bg-white/80 backdrop-blur-sm p-2 rounded-full shadow-lg">
-        <img
-          src={logo}
-          alt="Sky Bridge Logo"
-          className="w-12 h-12 rounded-full object-cover"
-        />
-      </div>
+     {/* Logo
+<div className="absolute top-6 left-4 sm:top-16 sm:left-6 md:top-24 md:left-6 z-50 bg-white/80 backdrop-blur-sm p-2 rounded-full shadow-lg">
+  <img
+    src={logo}
+    alt="Sky Bridge Logo"
+    className="w-10 h-10 sm:w-12 sm:h-12 rounded-full object-cover"
+  />
+</div> */}
+
+
 
       {/* Content */}
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
