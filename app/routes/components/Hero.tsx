@@ -13,8 +13,8 @@ export default function Hero() {
 
   return (
     <section
-      className="relative bg-white overflow-x-hidden overflow-y-hidden"
-      id="hero"
+       className="relative bg-white overflow-x-hidden overflow-y-hidden pt-24" // 👈 Add pt-24 here
+  id="hero"
     >
       {/* Background pattern */}
       <div
@@ -25,24 +25,19 @@ export default function Hero() {
         }}
       />
 
-     {/* Logo
-<div className="absolute top-6 left-4 sm:top-16 sm:left-6 md:top-24 md:left-6 z-50 bg-white/80 backdrop-blur-sm p-2 rounded-full shadow-lg">
-  <img
-    src={logo}
-    alt="Sky Bridge Logo"
-    className="w-10 h-10 sm:w-12 sm:h-12 rounded-full object-cover"
-  />
-</div> */}
-
-
+      {/* Sticky logo inside content */}
+      <div className="sticky top-4 z-30 px-4 sm:px-6 lg:px-8">
+        <img
+          src={logo}
+          alt="Sky Bridge Logo"
+          className="w-14 sm:w-16 md:w-20 h-auto rounded-full shadow-md border border-gray-200"
+        />
+      </div>
 
       {/* Content */}
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
         {/* Text Content */}
-        <div
-          className="space-y-8 text-center md:text-left"
-          data-aos="fade-up"
-        >
+        <div className="space-y-8 text-center md:text-left" data-aos="fade-up">
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-[#1F2937] leading-tight">
             Elevate Your Life with{" "}
             <span className="text-[#0074B7]">Sky Bridge</span>{" "}
@@ -85,7 +80,11 @@ export default function Hero() {
             data-aos="fade-up"
             data-aos-delay="300"
           >
-            <img src={bd2} alt="Luxury Home" className="w-full h-auto object-cover" />
+            <img
+              src={bd2}
+              alt="Luxury Home"
+              className="w-full h-auto object-cover"
+            />
           </div>
         </div>
       </div>
