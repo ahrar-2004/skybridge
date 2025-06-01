@@ -16,19 +16,19 @@ const Navbar: React.FC = () => {
   ];
 
   return (
-    <nav className="fixed top-0 left-0 w-full z-50 backdrop-blur-md bg-white/90 shadow-md">
+    <nav className="fixed top-0 left-0 w-full z-50 bg-white shadow-md">
       <div className="max-w-7xl mx-auto flex justify-between items-center px-6 py-4">
         {/* Logo and Brand */}
         <div className="flex items-center space-x-3">
           <img
             src={logo}
             alt="Sky Bridge Logo"
-            className="w-10 h-10 rounded-full object-cover shadow"
+            className="w-10 h-10 rounded-full object-cover shadow animate-pulse"
           />
           <span className="text-2xl font-bold text-[#0074B7]">Sky Bridge</span>
         </div>
 
-        {/* Desktop Menu */}
+        {/* Desktop Navigation */}
         <ul className="hidden md:flex space-x-6 lg:space-x-10 font-semibold text-[#B8860B]">
           {navItems.map((item) => (
             <li key={item.to} className="relative group">
@@ -46,7 +46,7 @@ const Navbar: React.FC = () => {
           ))}
         </ul>
 
-        {/* Mobile Menu Icon */}
+        {/* Mobile Menu Button */}
         <button
           onClick={() => setIsOpen(!isOpen)}
           className="md:hidden text-[#0074B7]"
@@ -58,7 +58,7 @@ const Navbar: React.FC = () => {
 
       {/* Mobile Slide Menu */}
       <div
-        className={`fixed top-0 left-0 h-full w-2/3 sm:w-1/2 bg-white/80 backdrop-blur-md z-50 shadow-lg transform transition-transform duration-300 ease-in-out ${
+        className={`fixed top-0 left-0 h-full w-2/3 sm:w-1/2 bg-white z-50 shadow-lg transform transition-transform duration-300 ease-in-out ${
           isOpen ? "translate-x-0" : "-translate-x-full"
         }`}
       >
@@ -67,7 +67,7 @@ const Navbar: React.FC = () => {
             <img
               src={logo}
               alt="Sky Bridge Logo"
-              className="w-8 h-8 rounded-full object-cover"
+              className="w-8 h-8 rounded-full object-cover animate-pulse"
             />
             <span className="text-xl font-bold text-[#0074B7]">Sky Bridge</span>
           </div>
@@ -76,7 +76,7 @@ const Navbar: React.FC = () => {
           </button>
         </div>
 
-        <ul className="flex flex-col p-6 space-y-5 font-medium text-[#B8860B] bg-white/70 backdrop-blur-sm rounded-lg shadow-inner">
+        <ul className="flex flex-col p-6 space-y-5 font-medium text-[#B8860B] bg-white">
           {navItems.map((item) => (
             <li key={item.to}>
               <Link
